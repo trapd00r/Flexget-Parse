@@ -13,7 +13,7 @@ sub flexparse {
   my @parsed;
   for my $file(@files) {
     next unless $file =~ m/Downloading: /;
-    $file =~ s/(?:\w+\s+){2}\w+: //;
+    $file =~ s/(?:\d{4}-\d{2}-\d{2} \d{2}:\d{2} )?(?:\w+\s+){2}\w+\s*\w+: //;
     push(@parsed, $file);
   }
   return(@parsed);
